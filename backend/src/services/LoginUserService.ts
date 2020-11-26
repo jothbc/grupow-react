@@ -16,9 +16,7 @@ class LoginUserService {
   public execute({ email, password }: UserDTO): User {
     const users = this.userRepository.getUsers();
 
-    return (
-      users.filter(u => u.email === email && u.password === password)[0] || null
-    );
+    return users.filter(u => u.email === email && u.password === password)[0];
   }
 }
 

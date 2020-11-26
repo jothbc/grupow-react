@@ -1,12 +1,12 @@
 import styled, { keyframes } from 'styled-components';
 
 import { shade } from 'polished';
-import BackgroundImg from '../../assets/background.png';
+import BackgroundImg from '../../assets/useeabuse.jpg';
 
-const animLeft = keyframes`
+const animRight = keyframes`
   from{
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(30px);
   }to{
     opacity: 1;
     transform: translateX(0px);
@@ -17,6 +17,7 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
 `;
+
 export const Section = styled.div`
   width: 100%;
   @media (min-width: 1200px) {
@@ -33,7 +34,7 @@ export const Section = styled.div`
     width: 305px;
     margin: 0 24px;
 
-    animation: ${animLeft} 300ms ease-in-out forwards;
+    animation: ${animRight} 300ms ease-in-out forwards;
 
     h3 {
       font-weight: 500;
@@ -77,6 +78,7 @@ export const Section = styled.div`
     }
   }
 `;
+
 export const Background = styled.div`
   background: url(${BackgroundImg}) no-repeat center;
   background-size: cover;

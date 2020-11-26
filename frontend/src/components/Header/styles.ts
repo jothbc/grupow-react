@@ -5,7 +5,7 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 48px;
-  height: 144px;
+  height: 80px;
   background: #28262e;
 `;
 
@@ -18,9 +18,14 @@ export const Content = styled.div`
   align-items: center;
   div {
     display: flex;
-    img {
-      height: 56px;
-      border-radius: 50%;
+    label {
+      input {
+        display: none;
+      }
+      img {
+        height: 56px;
+        border-radius: 50%;
+      }
     }
     div {
       display: block;

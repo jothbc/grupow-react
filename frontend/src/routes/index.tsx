@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
-import Home from '../pages/Home';
 import Login from '../pages/Login';
+import SignUp from '../pages/SignUp';
 
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/" exact component={Dashboard} />
       <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
     </Switch>
   );
 };

@@ -8,7 +8,7 @@ import UpdateUserAvatarService from '../services/UpdateAvatarUserService';
 
 const usersRouter = Router();
 
-const userRepository = new UserRepository();
+export const userRepository = new UserRepository();
 
 // faz o multer receber as configurações que definimos no uploadConfig
 const upload = multer(uploadConfig);
@@ -18,17 +18,18 @@ usersRouter.get('/', (request, response) => {
 });
 
 usersRouter.post('/', (request, response) => {
-  const { email, password, password_confirm } = request.body;
+  const { name, email, password, password_confirm } = request.body;
 
   const createUserService = new CreateUserService(userRepository);
   try {
     const user = createUserService.execute({
       email,
+      name,
       password,
       password_confirm,
     });
 
-    return response.json(user);
+    return response.json({ ...user, password: '' });
   } catch (err) {
     return response.status(400).json({ message: err.message });
   }
@@ -43,7 +44,7 @@ usersRouter.patch('/avatar', upload.single('avatar'), (request, response) => {
   try {
     const updateAvatarUserService = new UpdateUserAvatarService(userRepository);
     const user = updateAvatarUserService.execute({ id, avatar: file.filename });
-    return response.json(user);
+    return response.json({ ...user, password: '' });
   } catch (err) {
     return response.status(400).json({ message: err.message });
   }

@@ -14,8 +14,12 @@ class UpdateUserAvatarService {
   }
 
   public execute({ id, avatar }: AvatarProps): User {
-    const user = this.userRepository.setAvatar({ id, avatar });
-    return user;
+    try {
+      const user = this.userRepository.setAvatar({ id, avatar });
+      return user;
+    } catch (err) {
+      throw new Error(err.message);
+    }
   }
 }
 

@@ -1,3 +1,4 @@
+import { shade } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -8,7 +9,7 @@ export const Container = styled.div`
 
 export const NewPost = styled.div`
   color: #999591;
-  margin-bottom: 32px;
+  margin-bottom: 34px;
   h2 {
     font-size: 20px;
     line-height: 26px;
@@ -17,6 +18,7 @@ export const NewPost = styled.div`
   div {
     position: relative;
     margin-top: 24px;
+
     textarea {
       color: #f4ede8;
       border: none;
@@ -30,6 +32,7 @@ export const NewPost = styled.div`
       padding: 16px 24px;
       outline: none;
     }
+
     span {
       position: absolute;
       width: 1px;
@@ -38,6 +41,26 @@ export const NewPost = styled.div`
       left: 1px;
       top: 50%;
       transform: translateY(-50%);
+    }
+  }
+
+  button {
+    display: block;
+    background: #ff9000;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    padding: 12px 26px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #f4ede8;
+    margin-top: 8px;
+    margin-left: auto;
+    transition: 300ms;
+    &:hover {
+      background: ${shade(0.2, '#FF9000')};
+      color: ${shade(0.2, '#f4ede8')};
     }
   }
 `;

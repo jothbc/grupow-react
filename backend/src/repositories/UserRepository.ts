@@ -1,6 +1,7 @@
 import User from '../models/User';
 
 interface UserDTO {
+  name: string;
   email: string;
   password: string;
 }
@@ -16,8 +17,8 @@ class UserRepository {
     this.users = [];
   }
 
-  public create({ email, password }: UserDTO): User {
-    const user = new User({ email, password });
+  public create({ name, email, password }: UserDTO): User {
+    const user = new User({ name, email, password });
     this.users.push(user);
 
     return user;
@@ -38,6 +39,8 @@ class UserRepository {
     const userWithAvatar = { ...user, avatar };
     if (i > -1) {
       this.users[i] = userWithAvatar;
+    } else {
+      throw new Error('User not exist.');
     }
 
     return userWithAvatar;
